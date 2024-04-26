@@ -18,6 +18,6 @@ module.exports = {
       { allowConstantExport: true },
     ],
     'react/prop-types': '0',
-    'react/react-in-jsx-scope': 'off',
+    'react/react-in-jsx-scope': '0',
   },
 }

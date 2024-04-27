@@ -1,10 +1,10 @@
-import MovieCard from "./components/MovieCard";
+import MovieFilter from "./components/MovieFilter";
 
 function App() {
 
   return (
     <>
-    <MovieCard />
+    <MovieFilter />
     </>
   )
 }

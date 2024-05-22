@@ -28,7 +28,7 @@ function SelectLanguage() {
   ];
 
   const changeLanguage = (selectedOption) => {
-    console.log(selectedOption.value);
+    console.log(selectedOption.value)
     setLanguage(selectedOption.value);
   };
 

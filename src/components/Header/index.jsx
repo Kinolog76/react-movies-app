@@ -4,22 +4,28 @@ import styles from "./Header.module.css";
 import logo from "../../assets/logo.png";
 
 function Header() {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    localStorage.setItem("theme", newTheme);
   };
-  console.log(theme);
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
-    <header className={styles.header}>
+    <header data-open-menu={menuOpen} className={styles.header}>
       <div className={`${styles.header__container} container`}>
         <a href="/" className={styles.header__logo}>
-          <img src={logo} alt="Site name" />
+          <img src={logo} alt="React Movie" />
         </a>
-        <div className={styles.header__mobile_btn}>
+        <div onClick={toggleMenu} className={styles.header__mobile_btn}>
           <span></span>
         </div>
-       <div className={styles.header__box}>
+        <div className={styles.header__box}>
           <div className={styles.header__menu}>
             <a href="/">Now Playing</a>
             <a href="/">Popular</a>
@@ -42,7 +48,12 @@ function Header() {
                     <path d="m223.5 32c-123.5 0-223.5 100.3-223.5 224s100 224 223.5 224c60.6 0 115.5-24.2 155.8-63.4 5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6-96.9 0-175.5-78.8-175.5-176 0-65.8 36-123.1 89.3-153.3 6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"></path>
                   </svg>
                 </span>
-                <input type="checkbox" className={styles.input} onChange={toggleTheme} />
+                <input
+                  type="checkbox"
+                  className={styles.input}
+                  onChange={toggleTheme}
+                  checked={theme === "dark"}
+                />
                 <span className={styles.slider}></span>
               </label>
             </div>
@@ -50,7 +61,7 @@ function Header() {
               <SelectLanguage />
             </div>
           </div>
-       </div>
+        </div>
       </div>
     </header>
   );

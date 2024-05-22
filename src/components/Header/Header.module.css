@@ -6,13 +6,11 @@
   width: 64px;
   height: 34px;
 }
-
 .switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
-
 .slider {
   position: absolute;
   cursor: pointer;
@@ -24,7 +22,6 @@
   transition: 0.4s;
   border-radius: 30px;
 }
-
 .slider:before {
   position: absolute;
   content: "";
@@ -37,7 +34,6 @@
   background-color: #e8e8e8;
   transition: 0.4s;
 }
-
 .sun svg {
   position: absolute;
   top: 5px;
@@ -46,7 +42,6 @@
   width: 24px;
   height: 24px;
 }
-
 .moon svg {
   fill: #73c0fc;
   position: absolute;
@@ -56,11 +51,9 @@
   width: 24px;
   height: 24px;
 }
-
 .sun svg {
   animation: rotate 15s linear infinite;
 }
-
 @keyframes rotate {
   0% {
     transform: rotate(0);
@@ -70,12 +63,9 @@
     transform: rotate(360deg);
   }
 }
-
-/* .switch:hover */
 .moon svg {
   animation: tilt 5s linear infinite;
 }
-
 @keyframes tilt {
   0% {
     transform: rotate(0deg);
@@ -93,22 +83,22 @@
     transform: rotate(0deg);
   }
 }
-
 .input:checked + .slider {
   background-color: #183153;
 }
-
 .input:focus + .slider {
   box-shadow: 0 0 1px #183153;
 }
-
 .input:checked + .slider:before {
   transform: translateX(30px);
 }
 .header {
+  position: relative;
   height: 112px;
   padding: 10px 0;
   border-bottom: 1px solid #fff;
+  background-color: #1f1f1f;
+  z-index: 2;
 }
 .header__container {
   column-gap: 40px;
@@ -212,7 +202,12 @@
     height: calc(100vh - 112px);
     padding: 20px;
     top: 112px;
+    right: -100%;
+    z-index: -1;
+    transition: right 0.4s;
+  }
+  [data-open-menu="true"] .header__box {
+    transition: right 0.4s;
     right: 0;
-    z-index: 1;
   }
 }

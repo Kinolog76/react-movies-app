@@ -6,6 +6,7 @@
 }
 #root {
   position: relative;
+  overflow: hidden;
 }
 body {
   background-color: #1f1f1f;
@@ -16,13 +17,15 @@ body {
   margin: 0 auto;
   padding: 0 10px;
 }
+.main {
+  padding: 20px 0;
+}
 
 .movies-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
 }
-
 .select-language {
   width: 70px;
   color: #fff;
@@ -40,7 +43,6 @@ body {
 .css-1nmdiq5-menu * {
   cursor: pointer;
 }
-
 .select-language .css-4xgw5l-IndicatorsContainer2 {
   display: none;
 }

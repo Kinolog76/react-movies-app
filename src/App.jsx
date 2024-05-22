@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import getPopularMovies from "./services/popularMovie.service";
 import MovieCard from "./components/MovieCard";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -51,24 +52,25 @@ function App() {
   }, [page, language]);
 
   return (
-    <div>
+    <>
       <Header />
-      <h1>Популярные фильмы</h1>
-      <div></div>
-      <div className="movies-list">
-        {movies.map((movie, index) => (
-          <MovieCard key={movie.id + `-${index}`} movie={movie} />
-        ))}
-        <div
-          ref={loader}
-          style={{
-            height: "0px",
-            marginTop: "-500px",
-            position: "relative",
-            zIndex: 100,
-          }}></div>
-      </div>
-    </div>
+      <main className="main">
+        <div className="movies-list container">
+          {movies.map((movie, index) => (
+            <MovieCard key={movie.id + `-${index}`} movie={movie} />
+          ))}
+          <div
+            ref={loader}
+            style={{
+              height: "0px",
+              marginTop: "-500px",
+              position: "relative",
+              zIndex: 100,
+            }}></div>
+        </div>
+      </main>
+      <Footer />
+    </>
   );
 }
 

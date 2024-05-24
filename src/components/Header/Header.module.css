@@ -93,7 +93,9 @@
   transform: translateX(30px);
 }
 .header {
-  position: relative;
+  position: fixed;
+  top: 0;
+  width: 100%;
   height: 112px;
   padding: 10px 0;
   border-bottom: 1px solid #fff;
@@ -172,7 +174,10 @@ a[aria-current="page"] {
 }
 @media (max-width: 849.98px) {
   .header__mobile_btn {
-    display: block;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
   }
   .header__container {
     justify-content: space-between;
@@ -227,5 +232,17 @@ a[aria-current="page"] {
   [data-open-menu="true"] .header__box {
     transition: right 0.4s;
     right: 0;
+  }
+}
+@media (max-width: 549.98px) {
+  .header {
+    height: 80px;
+  }
+  .header__logo {
+    max-width: 120px;
+  }
+  .header__box {
+    top: 80px;
+    height: calc(100vh - 80px);
   }
 }

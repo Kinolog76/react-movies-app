@@ -14,8 +14,8 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="popular" element={<Popular />} />
-          <Route path="now_playing" element={<NowPlaying />} />
-          <Route path="top_rated" element={<TopRated />} />
+          <Route path="now-playing" element={<NowPlaying />} />
+          <Route path="top-rated" element={<TopRated />} />
           <Route path="upcoming" element={<Upcoming />} />
           <Route path="movie/:id" element={<MoviePage />} />
           <Route path="*" element={<Popular />} />

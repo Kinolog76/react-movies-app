@@ -5,11 +5,11 @@ const Skeleton = (props) => (
   <ContentLoader
     speed={1}
     className={styles.root}
-    viewBox="0 0 280 364"
+    viewBox="0 0 280 394"
     backgroundColor="#e0e0e0"
     foregroundColor="#e0e0e0"
     {...props}>
-    <rect x="0" y="0" rx="10" ry="10" width="280" height="366" />
+    <rect x="0" y="-1" rx="15" ry="15" width="280" height="394" />
   </ContentLoader>
 );
 

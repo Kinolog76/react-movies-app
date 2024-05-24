@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "./Header.module.css";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/images/logo.png";
 import { NavLink, Link } from "react-router-dom";
 function Header() {
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
@@ -26,10 +26,18 @@ function Header() {
         </div>
         <div className={styles.header__box}>
           <div className={styles.header__menu}>
-            <NavLink to="/popular">Popular</NavLink>
-            <NavLink to="/now_playing">Now Playing</NavLink>
-            <NavLink to="/top_rated">Top Rated</NavLink>
-            <NavLink to="/upcoming">Upcoming</NavLink>
+            <NavLink onClick={toggleMenu} to="/popular">
+              Popular
+            </NavLink>
+            <NavLink onClick={toggleMenu} to="/now-playing">
+              Now Playing
+            </NavLink>
+            <NavLink onClick={toggleMenu} to="/top-rated">
+              Top Rated
+            </NavLink>
+            <NavLink onClick={toggleMenu} to="/upcoming">
+              Upcoming
+            </NavLink>
           </div>
           <div className={styles.header__switchers}>
             <div className={styles.header__theme}>

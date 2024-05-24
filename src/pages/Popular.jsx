@@ -8,11 +8,14 @@ function Popular() {
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
   const loader = useRef(null);
-  console.log(isLoading);
-
+  
   const toNextPage = () => {
     setPage((prev) => prev + 1);
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -45,14 +48,14 @@ function Popular() {
         const data = await getPopularMovies(page);
         setMovies((prevMovies) => [...prevMovies, ...data.results]);
         setIsLoading(false);
-        window.scrollTo(0, 0);
+        
       } catch (error) {
         console.error("Error:", error);
       }
     }
     fetchMovies();
   }, [page]);
-  console.log(isLoading);
+  
   const skeletons = [...new Array(16)].map((item, index) => <Skeleton key={index} />);
   const movieCards = movies.map((movie, index) => (
     <MovieCard key={movie.id + `-${index}`} movie={movie} />

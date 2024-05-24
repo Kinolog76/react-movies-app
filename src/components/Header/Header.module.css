@@ -152,6 +152,24 @@
   justify-content: space-between;
   align-items: center;
 }
+.header__register_btn {
+  background-color: #0c9d00;
+  color: #fff;
+  padding: 10px 20px 12px;
+  border-radius: 5px;
+  font-size: 18px;
+  line-height: 1;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.header__register_btn:hover {
+  background-color: #0d9d00a5;
+}
+a[aria-current="page"] {
+  color: #949ea6;
+  text-decoration: underline;
+}
 @media (max-width: 849.98px) {
   .header__mobile_btn {
     display: block;

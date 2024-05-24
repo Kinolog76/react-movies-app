@@ -1,10 +1,10 @@
 import axios from "axios";
 
-async function getPopularMovies(language = "ru", page = 1) {
+async function getPopularMovies( page = 1) {
   const options = {
     method: "GET",
     url: "https://api.themoviedb.org/3/movie/popular",
-    params: { language: language, page: page.toString() },
+    params: { language: "en", page: page.toString() },
     headers: {
       accept: "application/json",
       Authorization:

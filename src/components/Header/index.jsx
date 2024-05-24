@@ -1,8 +1,7 @@
 import { useState } from "react";
-import SelectLanguage from "../SelectLanguage";
 import styles from "./Header.module.css";
 import logo from "../../assets/logo.png";
-
+import { NavLink, Link } from "react-router-dom";
 function Header() {
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
   const [menuOpen, setMenuOpen] = useState(false);
@@ -19,18 +18,18 @@ function Header() {
   return (
     <header data-open-menu={menuOpen} className={styles.header}>
       <div className={`${styles.header__container} container`}>
-        <a href="/" className={styles.header__logo}>
+        <Link to="/" className={styles.header__logo}>
           <img src={logo} alt="React Movie" />
-        </a>
+        </Link>
         <div onClick={toggleMenu} className={styles.header__mobile_btn}>
           <span></span>
         </div>
         <div className={styles.header__box}>
           <div className={styles.header__menu}>
-            <a href="/">Now Playing</a>
-            <a href="/">Popular</a>
-            <a href="/">Top Rated</a>
-            <a href="/">Upcoming</a>
+            <NavLink to="/popular">Popular</NavLink>
+            <NavLink to="/now_playing">Now Playing</NavLink>
+            <NavLink to="/top_rated">Top Rated</NavLink>
+            <NavLink to="/upcoming">Upcoming</NavLink>
           </div>
           <div className={styles.header__switchers}>
             <div className={styles.header__theme}>
@@ -57,8 +56,8 @@ function Header() {
                 <span className={styles.slider}></span>
               </label>
             </div>
-            <div className={styles.header__select}>
-              <SelectLanguage />
+            <div className={styles.header__register}>
+              <button className={styles.header__register_btn}>Register</button>
             </div>
           </div>
         </div>

@@ -1,10 +1,11 @@
 import styles from "./MovieCard.module.css";
 import { API_IMAGE_BASE_URL } from "/config/constants";
+import { Link } from "react-router-dom";
 
 function MovieCard({ movie }) {
   return (
-    <a
-      href={`/movie/${movie.id}`}
+    <Link
+      to={`/movie/${movie.id}`}
       key={movie.id}
       data-popularity={movie.popularity}
       className={styles.root}>
@@ -17,9 +18,11 @@ function MovieCard({ movie }) {
       />
       <h2 className={styles.title}>{movie.title}</h2>
       <div className={styles.descriptionContainer}>
-        <p className={styles.description}>{movie.overview}</p>
+        <p className={styles.description}>
+          {movie.overview == "" ? "No description" : movie.overview}
+        </p>
       </div>
-    </a>
+    </Link>
   );
 }
 

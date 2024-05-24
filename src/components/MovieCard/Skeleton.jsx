@@ -3,14 +3,13 @@ import styles from "./MovieCard.module.css";
 
 const Skeleton = (props) => (
   <ContentLoader
-    speed={2}
+    speed={1}
     className={styles.root}
-    viewBox="0 0 350 365"
-    backgroundColor="#e8e8e8"
+    viewBox="0 0 280 364"
+    backgroundColor="#e0e0e0"
     foregroundColor="#e0e0e0"
     {...props}>
-    <rect x="8" y="52" rx="15" ry="15" width="277" height="348" />
-    <rect x="295" y="536" rx="0" ry="0" width="28" height="3" />
+    <rect x="0" y="0" rx="10" ry="10" width="280" height="366" />
   </ContentLoader>
 );
 

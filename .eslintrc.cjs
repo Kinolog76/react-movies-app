@@ -16,5 +16,6 @@ module.exports = {
     "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
     "react/prop-types": "0",
     "react/react-in-jsx-scope": "0",
+    "react/react-in-tsx-scope": "0",
   },
 };

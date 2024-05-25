@@ -6,6 +6,7 @@ import TopRated from "./pages/TopRated";
 import Upcoming from "./pages/Upcoming";
 import MoviePage from "./pages/MoviePage";
 import Layout from "./components/Layout";
+import Genre from "./pages/Genre";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="top-rated" element={<TopRated />} />
           <Route path="upcoming" element={<Upcoming />} />
           <Route path="movie/:id" element={<MoviePage />} />
+          <Route path="genre/:id" element={<Genre />} />
           <Route path="*" element={<Popular />} />
         </Route>
       </Routes>

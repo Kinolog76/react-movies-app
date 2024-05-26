@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import getNowPlayingMovies from "../services/nowPlayingMovies.service";
+import { getNowPlayingMovies } from "../services/tmdb.service";
 import MovieCard from "../components/MovieCard";
 import Skeleton from "../components/MovieCard/Skeleton";
 

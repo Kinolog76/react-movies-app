@@ -7,7 +7,6 @@ function Video({ videos }) {
       <ReactPlayer
         className="movie__video"
         url={`https://www.youtube.com/embed/${videos.key}`}
-        playing
       />
     </>
   );

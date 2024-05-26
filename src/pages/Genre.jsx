@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
-import getGenresMovies from "../services/genresMovie.service";
+import {getGenresMovies} from "../services/tmdb.service";
 import MovieCard from "../components/MovieCard";
 import Skeleton from "../components/MovieCard/Skeleton";
 

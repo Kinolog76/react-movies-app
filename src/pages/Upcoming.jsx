@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import getUpcomingMovies from "../services/upcomingMovies.service";
+import {getUpcomingMovies} from "../services/tmdb.service";
 import MovieCard from "../components/MovieCard";
 import Skeleton from "../components/MovieCard/Skeleton";
 

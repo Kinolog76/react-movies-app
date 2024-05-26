@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import getTopRatedMovies from "../services/topRatedMovies.service";
+import {getTopRatedMovies} from "../services/tmdb.service";
 import MovieCard from "../components/MovieCard";
 import Skeleton from "../components/MovieCard/Skeleton";
 

@@ -113,10 +113,10 @@ async function getTopRatedMovies(page = 1) {
 }
 
 //* Предстоящие фильмы
-async function getUpcomingMovies( page = 1) {
+async function getUpcomingMovies(page = 1) {
   const options = {
     method: "GET",
-    url: `${API_KEY}movie/upcoming`,
+    url: `${API_URL}movie/upcoming`,
     params: { language: "en", page: page.toString() },
     headers: {
       accept: "application/json",
@@ -138,7 +138,7 @@ async function getUpcomingMovies( page = 1) {
 async function getGenresMovies(id, page = 1) {
   const options = {
     method: "GET",
-    url: `${API_KEY}/discover/movie`,
+    url: `${API_URL}discover/movie`,
     params: { with_genres: id.toString(), page: page.toString() },
     headers: {
       accept: "application/json",
@@ -148,7 +148,7 @@ async function getGenresMovies(id, page = 1) {
 
   try {
     const response = await axios.request(options);
-    console.log("response", response.data);
+    console.log("getGenresMovies", response.data);
     return response.data;
   } catch (error) {
     console.error(error);
@@ -156,4 +156,12 @@ async function getGenresMovies(id, page = 1) {
   }
 }
 
-export { getMovieDetails, getMovieVideos, getNowPlayingMovies, getPopularMovies, getTopRatedMovies, getUpcomingMovies, getGenresMovies };
+export {
+  getMovieDetails,
+  getMovieVideos,
+  getNowPlayingMovies,
+  getPopularMovies,
+  getTopRatedMovies,
+  getUpcomingMovies,
+  getGenresMovies,
+};

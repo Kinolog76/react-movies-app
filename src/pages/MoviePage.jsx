@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getMovieDetails, getMovieVideos } from "../services/tmdb.service";
 import Video from "../components/Video";
-import getImageLink from "../utils/imageLinks.helpers";
 import MovieDetails from "../components/MovieDetails";
 
 function MoviePage() {

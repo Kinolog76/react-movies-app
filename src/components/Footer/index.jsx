@@ -1,8 +1,6 @@
-import styles from "./Footer.module.css";
-
 function Footer() {
-  return <footer className={styles.footer}>
-    <div className={`${styles.container} container`}>
+  return <footer className={`footer`}>
+    <div className={`footer_container container`}>
       
     </div>
   </footer>;

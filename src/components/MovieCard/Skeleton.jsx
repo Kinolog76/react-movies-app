@@ -4,7 +4,7 @@ import styles from "./MovieCard.module.css";
 const Skeleton = (props) => (
   <ContentLoader
     speed={1}
-    className={styles.root}
+    className={`movie__card`}
     viewBox="0 0 280 394"
     backgroundColor="#e0e0e0"
     foregroundColor="#e0e0e0"

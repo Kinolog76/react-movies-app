@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { NavLink, Link } from "react-router-dom";
+import { useContext, useState } from "react";
 import styles from "./Header.module.css";
 import logo from "../../assets/images/logo.png";
-import { NavLink, Link } from "react-router-dom";
+import { ThemeContext } from "../../App";
+
 function Header() {
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  const { theme, setTheme } = useContext(ThemeContext);
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleTheme = () => {
@@ -11,21 +13,22 @@ function Header() {
     setTheme(newTheme);
     localStorage.setItem("theme", newTheme);
   };
+
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
   return (
-    <header data-open-menu={menuOpen} className={styles.header}>
-      <div className={`${styles.header__container} container`}>
-        <Link to="/" className={styles.header__logo}>
+    <header data-open-menu={menuOpen} className={`header`}>
+      <div className={`header__container container`}>
+        <Link to="/" className={`header__logo`}>
           <img src={logo} alt="React Movie" />
         </Link>
-        <div onClick={toggleMenu} className={styles.header__mobile_btn}>
+        <div onClick={toggleMenu} className={`header__mobile_btn`}>
           <span></span>
         </div>
-        <div className={styles.header__box}>
-          <div className={styles.header__menu}>
+        <div className={`header__box`}>
+          <div className={`header__menu`}>
             <NavLink onClick={toggleMenu} to="/popular">
               Popular
             </NavLink>
@@ -39,8 +42,8 @@ function Header() {
               Upcoming
             </NavLink>
           </div>
-          <div className={styles.header__switchers}>
-            <div className={styles.header__theme}>
+          <div className={`header__switchers`}>
+            <div className={`header__theme`}>
               <label className={styles.switch}>
                 <span className={styles.sun}>
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -64,8 +67,8 @@ function Header() {
                 <span className={styles.slider}></span>
               </label>
             </div>
-            <div className={styles.header__register}>
-              <button className={styles.header__register_btn}>Register</button>
+            <div className={`header__register`}>
+              <button className={`header__register_btn`}>Register</button>
             </div>
           </div>
         </div>

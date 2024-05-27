@@ -7,17 +7,17 @@ const MovieCard = React.memo(({ movie }) => {
   const IMAGE_LINK = getImageLink(movie.poster_path);
   
   return (
-    <Link to={`/movie/${movie.id}`} className={styles.root}>
+    <Link to={`/movie/${movie.id}`} className={`movie__card`}>
       <img
-        className={styles.image}
+        className={`movie__card-image`}
         decoding="async"
-        fetchpriority="high"
+        loading="lazy"
         src={IMAGE_LINK}
         alt={movie.title}
       />
-      <div className={styles.descriptionContainer}>
-        <h2 className={styles.title}>{movie.title}</h2>
-        <p className={styles.description}>
+      <div className={`movie__card-descriptionContainer`}>
+        <h2 className={`movie__card-title`}>{movie.title}</h2>
+        <p className={`movie__card-description`}>
           {movie.overview === "" ? "No description" : movie.overview}
         </p>
       </div>

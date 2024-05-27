@@ -1,7 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import useFetchMovies from "../hooks/useFetchMovies";
-import useInfiniteScroll from "../hooks/useInfiniteScroll";
 import { getGenresMovies } from "../services/tmdb.service";
 import MovieCard from "../components/MovieCard";
 import Skeleton from "../components/MovieCard/Skeleton";
@@ -9,7 +8,7 @@ import Skeleton from "../components/MovieCard/Skeleton";
 function GenresMovies() {
   const { id } = useParams();
   const [page, setPage] = useState(1);
-  const loader = useRef(null);
+
 
   function fetchDataFunction(page) {
     return getGenresMovies(id, page);
@@ -20,8 +19,8 @@ function GenresMovies() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
   const { movies, isLoading, error } = useFetchMovies(page, fetchDataFunction);
-  useInfiniteScroll(loader, toNextPage);
 
   const skeletons = [...new Array(16)].map((item, index) => <Skeleton key={index} />);
   const movieCards = movies.map((movie, index) => (
@@ -30,17 +29,8 @@ function GenresMovies() {
 
   return (
     <>
-      <div className="movies-list">
-        {isLoading ? skeletons : movieCards}
-        <div
-          ref={loader}
-          style={{
-            height: "0px",
-            marginTop: "-500px",
-            position: "relative",
-            zIndex: 100,
-          }}></div>
-      </div>
+      <div className="movies-list">{isLoading ? skeletons : movieCards}</div>
+      <button className="load-more__btn" onClick={toNextPage}>Load more</button>
     </>
   );
 }

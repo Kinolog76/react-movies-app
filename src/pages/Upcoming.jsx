@@ -1,14 +1,11 @@
 import { useRef, useState, useEffect } from "react";
-import useInfiniteScroll from "../hooks/useInfiniteScroll";
 import useFetchMovies from "../hooks/useFetchMovies";
 import { getUpcomingMovies } from "../services/tmdb.service";
-import InfiniteScroll from "../components/InfiniteScroll";
 import MovieCard from "../components/MovieCard";
 import Skeleton from "../components/MovieCard/Skeleton";
 
 function Upcoming() {
   const [page, setPage] = useState(1);
-  const loader = useRef(null);
 
   function toNextPage() {
     setPage((prev) => prev + 1);
@@ -19,7 +16,6 @@ function Upcoming() {
   }, []);
 
   const { movies, isLoading, error } = useFetchMovies(page, getUpcomingMovies);
-  useInfiniteScroll(loader, toNextPage);
 
   const skeletons = [...new Array(16)].map((item, index) => <Skeleton key={index} />);
   const movieCards = movies.map((movie, index) => (
@@ -28,10 +24,8 @@ function Upcoming() {
 
   return (
     <>
-      <div className="movies-list">
-        {isLoading ? skeletons : movieCards}
-        <InfiniteScroll loader={loader} />
-      </div>
+      <div className="movies-list">{isLoading ? skeletons : movieCards}</div>
+      <button className="load-more__btn" onClick={toNextPage}>Load more</button>
     </>
   );
 }

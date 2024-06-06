@@ -217,13 +217,32 @@ body,
 .header__register_btn {
   background-color: #0c9d00;
   color: #fff;
-  padding: 10px 20px 12px;
+  padding: 12px 20px 10px;
   border-radius: 5px;
   font-size: 18px;
   line-height: 1;
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.2s;
+}
+.dark .header__profile_btn img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+  transition: opacity 0.2s;
+}
+.light .header__profile_btn img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #000;
+  transition: opacity 0.2s;
+}
+.header__profile_btn img:hover {
+  opacity: 0.8;
 }
 .header__register_btn:hover {
   background-color: #0d9d00a5;

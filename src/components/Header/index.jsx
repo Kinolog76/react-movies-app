@@ -2,11 +2,13 @@ import { NavLink, Link } from "react-router-dom";
 import { useContext, useState } from "react";
 import styles from "./Header.module.css";
 import logo from "../../assets/images/logo.png";
-import { ThemeContext } from "../../App";
+import { ThemeContext, AuthContext } from "../../App";
+import Login from "../Login";
 
 function Header() {
   const { theme, setTheme } = useContext(ThemeContext);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { isLoggedIn } = useContext(AuthContext);
 
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
@@ -68,7 +70,11 @@ function Header() {
               </label>
             </div>
             <div className={`header__register`}>
-              <button className={`header__register_btn`}>Register</button>
+              {isLoggedIn ? (
+                <Link className={`header__profile_btn`} to="/profile">Profile</Link>
+              ) : (
+                <Login />
+              )}
             </div>
           </div>
         </div>
